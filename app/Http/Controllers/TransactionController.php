@@ -27,8 +27,8 @@ class TransactionController extends Controller
 	}
 	
 	public function detail($code){
-		$transaction = Transaction::groupBy('code')->orderBy('id','DESC')->first();
-		$transactiondetail = Transaction::orderBy('id','DESC')->get();
+		$transaction = Transaction::groupBy('code')->orderBy('id','DESC')->where('code',$code)->first();
+		$transactiondetail = Transaction::orderBy('id','DESC')->where('code',$code)->get();
 		return view('admin/transaction/detail',compact('transaction','transactiondetail'));
 	}
 }
