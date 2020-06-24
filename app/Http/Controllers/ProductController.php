@@ -53,6 +53,7 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
+        $product->weight = $request->weight;
         $product->user_id = Auth::user()->id;
         $product->save();
         alert()->success('Success Message', 'Produk Berhasil di Tambahkan');
@@ -110,6 +111,7 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
+        $product->weight = $request->weight;
         $product->user_id = Auth::user()->id;
         $product->save();
         alert()->success('Success Message', 'Produk Berhasil di Tambahkan');

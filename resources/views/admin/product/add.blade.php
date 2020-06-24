@@ -45,6 +45,10 @@
                     <input type="number" class="form-control" placeholder="Enter Price" name="price">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Weight</label>
+                    <input type="number" class="form-control" placeholder="Enter Weight" name="weight">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputPassword1">Parent Category</label>
                     <select class="form-control" name="category_id">
                       <option value="">Select</option>

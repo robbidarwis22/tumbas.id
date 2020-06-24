@@ -24,5 +24,11 @@ class TransactionController extends Controller
     	Transaction::whereIn('id',$transaction)->update(['status' => $change]);
     	alert()->success('Success Message', 'Status Pembayaran Berhasil diperbarui');
         return redirect('admin/transaction');
-    }
+	}
+	
+	public function detail($code){
+		$transaction = Transaction::groupBy('code')->orderBy('id','DESC')->first();
+		$transactiondetail = Transaction::orderBy('id','DESC')->get();
+		return view('admin/transaction/detail',compact('transaction','transactiondetail'));
+	}
 }

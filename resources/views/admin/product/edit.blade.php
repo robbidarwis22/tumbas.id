@@ -46,21 +46,24 @@
                     <input type="number" class="form-control" placeholder="Enter Price" name="price" value="{{ $product->price }}">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Weight</label>
+                    <input type="number" class="form-control" placeholder="Enter Weight" name="weight" value="{{ $product->weight }}">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputPassword1">Parent Category</label>
                     <select class="form-control" name="category_id">
-                      <option value="">Select</option>
                       @foreach($categorys as $category)
                       <option 
                         @if($category->id == $product->id)
                           selected="selected"
                         @endif
-                      value="{{ $category->id }}">{{ $category->name }}</option>
-                        @foreach(   $category->children as $sub)
-                          <option 
-                        @if($product->category_id == $sub->id)
+                        value="{{ $category->id }}">{{ $category->name }}</option>
+                        @foreach($category ->children as $sub)
+                        <option 
+                        @if ($product->category_id == $sub->id )
                           selected="selected"
                         @endif
-                          value="{{ $sub->id }}"> - {{ $sub->name }}</option>
+                        value="{{ $sub->id }}"> - {{ $sub->name }}</option>
                         @endforeach
                       @endforeach
                     </select>
