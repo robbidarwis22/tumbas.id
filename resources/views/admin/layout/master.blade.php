@@ -249,30 +249,18 @@
               <p>Media</p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Transaction
-                <i class="fas fa-angle-left right"></i>
-              </p>
+          <li class="nav-item">
+            <a href="{{ route('transaction.index') }}" class="nav-link">
+               <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>Transaction</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('transaction.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Transaction</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan</p>
-                </a>
-              </li>
-            </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="{{ route('admin.user') }}" class="nav-link">
+               <i class="nav-icon fas fa-user"></i>
+              <p>User</p>
+            </a>
+          </li>
           <li class="nav-header">MULTI LEVEL EXAMPLE</li>
           <li class="nav-item">
             <a href="#" class="nav-link">

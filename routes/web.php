@@ -26,9 +26,12 @@ Route::prefix('admin')->group(function(){
 	Route::get('dashboard','HomeController@index');
 	Route::resource('category','CategoryController');
 	Route::resource('product','ProductController');
+	//Transaction
 	Route::get('transaction','TransactionController@index')->name('transaction.index');
 	Route::get('transaction/{code}/{status}','TransactionController@status');
 	Route::get('transaction/{code}/detail/data','TransactionController@detail');
 	Route::get('transaction/{code}/detail/data/cetak','TransactionController@cetakpdf');
+	//User
+	Route::get('user','UserController@index')->name('admin.user');
 });
 
