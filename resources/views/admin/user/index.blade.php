@@ -49,9 +49,9 @@
                         <td>{{ $users->gender }}</td>
                         <td>
                             @if($users->status == 0)
-                            Non Aktif
+                            <a href="{{ url('admin/user/status/'.$users->id) }}" class="text-danger">Non Aktif</a> 
                             @else
-                            Aktif
+                            <a href="{{ url('admin/user/status/'.$users->id) }}" class="text-primary">Aktif</a>
                             @endif
                         </td>
                         <td>{{ $users->role }}</td>

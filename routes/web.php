@@ -33,5 +33,6 @@ Route::prefix('admin')->group(function(){
 	Route::get('transaction/{code}/detail/data/cetak','TransactionController@cetakpdf');
 	//User
 	Route::get('user','UserController@index')->name('admin.user');
+	Route::get('user/status/{id}','UserController@changestatus');
 });
 
