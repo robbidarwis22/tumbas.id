@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    
+    $pdf = App::make('dompdf.wrapper');
+	$pdf->loadHTML('<h1>Test</h1>');
+	return $pdf->stream(); 
 });
 
 Auth::routes();
@@ -28,5 +29,6 @@ Route::prefix('admin')->group(function(){
 	Route::get('transaction','TransactionController@index')->name('transaction.index');
 	Route::get('transaction/{code}/{status}','TransactionController@status');
 	Route::get('transaction/{code}/detail/data','TransactionController@detail');
+	Route::get('transaction/{code}/detail/data/cetak','TransactionController@cetakpdf');
 });
 

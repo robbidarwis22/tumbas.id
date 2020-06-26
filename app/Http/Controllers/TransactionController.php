@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transaction;
 use Alert;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -30,5 +31,12 @@ class TransactionController extends Controller
 		$transaction = Transaction::groupBy('code')->orderBy('id','DESC')->where('code',$code)->first();
 		$transactiondetail = Transaction::orderBy('id','DESC')->where('code',$code)->get();
 		return view('admin/transaction/detail',compact('transaction','transactiondetail'));
+	}
+
+	public function cetakpdf($code){
+		$data['transaction'] = Transaction::groupBy('code')->orderBy('id','DESC')->where('code',$code)->first();
+		$data['transactiondetail'] = Transaction::orderBy('id','DESC')->where('code',$code)->get();
+		$pdf = PDF::loadView('admin.transaction.cetakpdf', $data);
+		return $pdf->download('admin.transaction.pdf');
 	}
 }
