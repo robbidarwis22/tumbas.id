@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Product;
+use App\User;
+use App\Transaction;
 
 class HomeController extends Controller
 {
@@ -23,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $category = Category::all();
+        $user = User::all();
+        $product = Product::all();
+        $transaction = Transaction::all();
+        return view('admin.dashboard',compact('category','user','product','transaction'));
     }
 
     public function media(){
