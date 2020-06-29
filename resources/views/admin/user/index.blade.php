@@ -32,6 +32,7 @@
                     <th>Gender</th>
                     <th>Status</th>
                     <th>Role</th>
+                    <th>Menu</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -55,6 +56,7 @@
                             @endif
                         </td>
                         <td>{{ $users->role }}</td>
+                        <td><a href="{{ url('admin/user/edit/'.$users->id) }}">Edit</a></td>
                         </tr>
                     @endforeach
                   </tbody>

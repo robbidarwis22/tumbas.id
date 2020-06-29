@@ -89,7 +89,7 @@
                                 <!-- <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus> -->
                                 <select name="gender" class="form-control">
                                     <option value="L">Laki-Laki</option>
-                                    <option value="L">Perempuan</option>
+                                    <option value="P">Perempuan</option>
                                 </select>
 
                                 @if ($errors->has('gender'))
