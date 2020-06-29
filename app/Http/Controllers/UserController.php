@@ -25,4 +25,26 @@ class UserController extends Controller
         alert()->success('Success Message', 'Status Berhasil diperbarui');
         return redirect('admin/user');
     }
+
+    public function create(){
+        return view('admin.user.add');
+    }
+
+    public function store(Request $data){
+        $mydata = ([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'gender' => $data['gender'],
+            'birthday' => $data['birthday'],
+            'role' => $data['role'],
+            'status' => "0",
+            'password' => bcrypt($data['password']),
+        ]);
+        User::create($mydata);
+        alert()->success('Success Message', 'Status Berhasil Disimpan');
+        return redirect('admin/user');
+    }
 }

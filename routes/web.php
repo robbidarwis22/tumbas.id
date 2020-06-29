@@ -34,5 +34,7 @@ Route::prefix('admin')->group(function(){
 	//User
 	Route::get('user','UserController@index')->name('admin.user');
 	Route::get('user/status/{id}','UserController@changestatus');
+	Route::get('user/add','UserController@create')->name('admin.user.create');
+	Route::post('user/add','UserController@store')->name('admin.user.store');
 });
 
