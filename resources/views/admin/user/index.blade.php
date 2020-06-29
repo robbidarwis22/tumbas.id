@@ -56,7 +56,9 @@
                             @endif
                         </td>
                         <td>{{ $users->role }}</td>
-                        <td><a href="{{ url('admin/user/edit/'.$users->id) }}">Edit</a></td>
+                        <td><a href="{{ url('admin/user/edit/'.$users->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ url('admin/user/delete/'.$users->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
                         </tr>
                     @endforeach
                   </tbody>

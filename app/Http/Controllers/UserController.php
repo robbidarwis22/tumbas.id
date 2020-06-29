@@ -70,4 +70,11 @@ class UserController extends Controller
         alert()->success('Success Message', 'Status Berhasil diperbarui');
         return redirect('admin/user');
     }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        alert()->success('Success Message', 'Status Berhasil Dihapus');
+        return redirect('admin/user');
+    }
 }
