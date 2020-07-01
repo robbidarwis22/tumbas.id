@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    $pdf = App::make('dompdf.wrapper');
-	$pdf->loadHTML('<h1>Test</h1>');
-	return $pdf->stream(); 
-});
+Route::get('/','BerandaController@index');
 
 Auth::routes();
+Route::get('/home','HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function(){
-	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('media','HomeController@media')->name('media.index');
 	Route::get('dashboard','HomeController@index');
 	Route::resource('category','CategoryController');
