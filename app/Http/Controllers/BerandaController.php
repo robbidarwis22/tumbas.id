@@ -25,4 +25,13 @@ class BerandaController extends Controller
         $products = Product::orderBy('id','DESC')->paginate(8);
         return view('homepage.product',compact('products','category'));
     }
+
+    public function productbycategory($slug){
+        $categorys = Category::where('slug',$slug)->first();
+        $id       = $categorys->id;
+        $category = $this->category;
+        $name     = $categorys->name;
+        $products = Product::orderBy('id','DESC')->where('category_id',$id)->paginate(8);
+        return view('homepage.productbycategory',compact('products','category','name'));
+    }
 }

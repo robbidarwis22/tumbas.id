@@ -13,7 +13,7 @@
 
 Route::get('/','BerandaController@index');
 Route::get('/product','BerandaController@product');
-Route::get('/category/{slug}','BerandaController@productbycategory');
+Route::get('/category/{slug}','BerandaController@productbycategory')->name('category.product');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');

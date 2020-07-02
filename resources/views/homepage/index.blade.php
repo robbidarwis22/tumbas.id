@@ -179,10 +179,10 @@ _________________________________________________________ -->
                                                 <div class="row">
                                                 @foreach($category as $cat)
                                                     <div class="col-sm-3">
-                                                        <h5>{{ $cat->name }}</h5>
+                                                        <h5><a href="{{ url('/category/'.$cat->slug) }}">{{ $cat->name }}</a></h5>
                                                         <ul>
                                                         @foreach($cat ->children as $sub)
-                                                            <li><a href="index.html">{{ $sub->name }}</a>
+                                                            <li><a href="{{ url('/category/'.$sub->slug) }}">{{ $sub->name }}</a>
                                                             </li>
                                                         @endforeach
                                                         </ul>
