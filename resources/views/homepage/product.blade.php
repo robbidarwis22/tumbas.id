@@ -3,10 +3,26 @@
     <title>Tumbas.id - Jual Gadget dan Komputer</title>
 @endsection
 @section('slide')
-    @include('homepage.layout.slider')
+
 @endsection
 @section('contents')
+<div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>All Product</h1>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a>
+                            </li>
+                            <li>Product</li>
+                        </ul>
 
+                    </div>
+                </div>
+            </div>
+        </div>
 <div id="content">
             <div class="container">
                 <p class="text-muted lead text-center">Jual Gadget dan Komputer</p>
@@ -38,34 +54,14 @@
                 </div>
                 <!-- /.products -->
 
-                <div class="col-sm-12">
-
-
                     <div class="pages">
-
-                        <p class="loadMore">
-                            <a href="#" class="btn btn-template-main"><i class="fa fa-chevron-down"></i> Load more</a>
-                        </p>
-
-                        <ul class="pagination">
-                            <li><a href="#">&laquo;</a>
-                            </li>
-                            <li class="active"><a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a>
-                            </li>
-                            <li><a href="#">3</a>
-                            </li>
-                            <li><a href="#">4</a>
-                            </li>
-                            <li><a href="#">5</a>
-                            </li>
-                            <li><a href="#">&raquo;</a>
-                            </li>
-                        </ul>
+                        <div class="col-md-12">
+                            <div style="text-align: center;">
+                            {{ $products->links() }}
+                            </div>
+                        </div>
                     </div>
 
-                </div>
                 <!-- /.col-sm-12 -->
 
             </div>
