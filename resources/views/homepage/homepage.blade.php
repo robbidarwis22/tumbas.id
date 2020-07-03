@@ -16,7 +16,7 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="product">
                             <div class="image">
-                                <a href="shop-detail.html">
+                                <a href="{{ url('product/detail/'.$product->slug) }}">
                                     <img src="{{ url($product->photo) }}" alt="" class="img-responsive image1">
                                 </a>
                             </div>
