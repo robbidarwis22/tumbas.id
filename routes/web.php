@@ -14,7 +14,10 @@
 Route::get('/','BerandaController@index');
 Route::get('/product','BerandaController@product');
 Route::get('/category/{slug}','BerandaController@productbycategory')->name('category.product');
+Route::get('/penjual/{id}','BerandaController@productbypenjual');
 Route::get('product/detail/{slug}','BerandaController@detail');
+//
+Route::get('penjual','BerandaController@penjual');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');

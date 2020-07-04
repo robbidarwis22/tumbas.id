@@ -117,6 +117,9 @@ _________________________________________________________ -->
                                 <li class="nav-item use-yamm yamm-fw">
                                     <a href="{{ url('product') }}">Product</a>
                                 </li>
+                                <li class="nav-item use-yamm yamm-fw">
+                                    <a href="{{ url('penjual') }}">Supplier</a>
+                                </li>
                                 <li class="dropdown use-yamm yamm-fw">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
                                     <ul class="dropdown-menu">

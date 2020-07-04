@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\User;
 
 class BerandaController extends Controller
 {
@@ -39,5 +40,18 @@ class BerandaController extends Controller
         $products = Product::where('slug',$slug)->first();
         $category = $this->category;
         return view('homepage.detail',compact('products','category'));
+    }
+
+    public function penjual(){
+        $category = $this->category;
+        $user = User::orderBy('id','DESC')->where('status',1)->where('role','!=','member')->get();
+        return view('homepage.supplier',compact('category','user'));
+    }
+
+    public function productbypenjual($id){
+        $category = $this->category;
+        $user = User::find($id);
+        $products = $user->product;
+        return view('homepage.productbypenjual',compact('products','category','user'));
     }
 }
