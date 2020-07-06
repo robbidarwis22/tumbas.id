@@ -11,7 +11,7 @@
     
 
     <meta name="keywords" content="">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap and Font Awesome css -->
@@ -491,6 +491,7 @@ _________________________________________________________ -->
     <!-- owl carousel -->
     <script src="{{ asset('static/js/owl.carousel.min.js') }}"></script>
 @yield('footer')
+@include('sweetalert::alert')
 </body>
 
 </html>

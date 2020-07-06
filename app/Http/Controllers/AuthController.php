@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Alert;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -24,6 +25,7 @@ class AuthController extends Controller
 
     protected function store(Request $data)
     {
+        $remember_token = base64_encode($data['email']);
         $mydata = [
             'name' => $data['name'],
             'email' => $data['email'],
@@ -35,9 +37,24 @@ class AuthController extends Controller
             'role' => $data['role'],
             'status' => "0",
             'password' => bcrypt($data['password']),
+            'remember_token' => $remember_token,
         ];
         User::create($mydata);
+        Mail::send('home',array('firstname' => $data['name'], 'remember_token' => $remember_token), function($pesan) use($data){
+            $pesan->to($data['email'],'Verifikasi')->subject('Verifikasi Email');
+            $pesan->from('polinemosproyek@gmail.com','Verifikasi Akun email anda');
+        });
         alert()->success('Success Message', 'Pendaftaran Berhasil');
 		return redirect('/');
+    }
+
+    public function verif($token){
+        $user = User::where('remember_token',$token)->first();
+        if($user->status=="0"){
+            $user->status = "1";
+        }
+        $user->save();
+        alert()->success('Success Message', 'Verifikasi Berhasil');
+		return redirect('auth/register');
     }
 }   

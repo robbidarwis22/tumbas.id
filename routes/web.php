@@ -20,6 +20,7 @@ Route::get('product/detail/{slug}','BerandaController@detail');
 Route::get('penjual','BerandaController@penjual');
 Route::get('auth/register','AuthController@register');
 Route::post('auth/register','AuthController@store')->name('home.register');
+Route::get('verifikasi/register/{token}','AuthController@verif');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');
