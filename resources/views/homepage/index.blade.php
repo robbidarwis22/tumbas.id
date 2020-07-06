@@ -75,7 +75,7 @@ _________________________________________________________ -->
 
                             <div class="login">
                                 <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-                                <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
+                                <a href="{{ url('auth/register') }}"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
                             </div>
 
                         </div>
@@ -120,59 +120,7 @@ _________________________________________________________ -->
                                 <li class="nav-item use-yamm yamm-fw">
                                     <a href="{{ url('penjual') }}">Supplier</a>
                                 </li>
-                                <li class="dropdown use-yamm yamm-fw">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <img src="{{ asset('static/img/template-homepage.png') }}" class="img-responsive hidden-xs" alt="">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Portfolio</h5>
-                                                        <ul>
-                                                            <li><a href="portfolio-2.html">2 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-2.html">2 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-3.html">3 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-3.html">3 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-4.html">4 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-4.html">4 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail.html">Portfolio - detail</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail-2.html">Portfolio - detail 2</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>About</h5>
-                                                        <ul>
-                                                            <li><a href="about.html">About us</a>
-                                                            </li>
-                                                            <li><a href="team.html">Our team</a>
-                                                            </li>
-                                                            <li><a href="team-member.html">Team member</a>
-                                                            </li>
-                                                            <li><a href="services.html">Services</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Marketing</h5>
-                                                        <ul>
-                                                            <li><a href="packages.html">Packages</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                
                                 <!-- ========== FULL WIDTH MEGAMENU ================== -->
                                 <li class="dropdown use-yamm yamm-fw">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Category<b class="caret"></b></a>
@@ -255,15 +203,16 @@ _________________________________________________________ -->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Customer login</h4>
+                        <h4 class="modal-title" id="Login">Login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
+                        <form action="{{ url('auth/login') }}" method="post">
+                        {{ @csrf_field() }}
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email_modal" placeholder="email">
+                                <input type="text" class="form-control" id="email_modal" name="email" placeholder="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password_modal" placeholder="password">
+                                <input type="password" class="form-control" id="password_modal" name="password" placeholder="password">
                             </div>
 
                             <p class="text-center">
@@ -272,8 +221,8 @@ _________________________________________________________ -->
 
                         </form>
 
-                        <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+                        <p class="text-center text-muted">Belum punya akun?</p>
+                        <p class="text-center text-muted"><a href="{{ url('auth/register') }}"><strong>Register now</strong>
 
                     </div>
                 </div>

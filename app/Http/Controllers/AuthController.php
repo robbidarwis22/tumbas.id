@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Alert;
 use Mail;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -56,5 +57,25 @@ class AuthController extends Controller
         $user->save();
         alert()->success('Success Message', 'Verifikasi Berhasil');
 		return redirect('auth/register');
+    }
+
+    public function login(Request $request){
+        $email = $request->email;
+        $pwd = $request->password;
+
+        if(Auth::attempt(['email' => $email,'password' => $pwd])){
+            $cek = User::where('id',Auth::user()->id)->first();
+            if($cek->status == 0){
+            Auth::logout();
+            alert()->success('Success Message', 'Maaf akun belum terverifikasi');
+            return redirect('/');
+            }else{
+                return redirect()->back();
+            }
+        }else{
+            alert()->success('Success Message', 'Maaf email atau password tidak sesuai');
+		    return redirect('/');
+        }
+        
     }
 }   
