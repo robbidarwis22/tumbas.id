@@ -65,6 +65,7 @@ _________________________________________________________ -->
                             <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                             </p>
                         </div>
+                        
                         <div class="col-xs-7">
                             <div class="social">
                                 <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
@@ -72,13 +73,16 @@ _________________________________________________________ -->
                                 <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                                 <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                             </div>
+                            @if(Auth::user())
 
+                            @else
                             <div class="login">
                                 <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
                                 <a href="{{ url('auth/register') }}"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
                             </div>
-
+                            @endif
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -145,20 +149,20 @@ _________________________________________________________ -->
                                         </li>
                                     </ul>
                                 </li>
-                                <!-- ========== FULL WIDTH MEGAMENU END ================== -->
-
+                                @if(Auth::user())
                                 <li class="dropdown">
-                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                                    <a style="color: #3aa18c" href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown"><img class="rounded-circle" width="15px" src="{{ url(Auth::user()->photo) }}" alt="">{{ Auth::user()->name }}<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="contact.html">Contact option 1</a>
+                                        <li><a href="contact.html">My Account</a>
                                         </li>
-                                        <li><a href="contact2.html">Contact option 2</a>
+                                        <li><a href="contact2.html">Logout</a>
                                         </li>
-                                        <li><a href="contact3.html">Contact option 3</a>
-                                        </li>
-
                                     </ul>
                                 </li>
+                                @endif
+                                <!-- ========== FULL WIDTH MEGAMENU END ================== -->
+
+                               
                             </ul>
 
                         </div>

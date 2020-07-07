@@ -22,6 +22,8 @@ Route::get('auth/register','AuthController@register');
 Route::post('auth/register','AuthController@store')->name('home.register');
 Route::get('verifikasi/register/{token}','AuthController@verif');
 Route::post('auth/login','AuthController@login');
+//cart
+Route::get('/cart/{id}','CartController@index');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');

@@ -50,36 +50,28 @@
                                         
                                         <p class="price">Rp. {{ number_format($products->price) }}</p>
                                         <br>
-                                        <p class="text-center">Weight: {{ $products->weight }}</p>
-                                        <p class="text-center">Stock: {{ $products->stock }}</p>
                                         <div class="sizes">
 
                                             <select class="form-control">
                                             <?php
                                             for($i=1; $i <= $products->stock; $i++){
-                                                echo '<option value="jne">'.$i.'</option>';
+                                                echo '<option value="small">'.$i.'</option>';
                                             }
                                             ?>
                                             </select>
-                                            
+                                            <br>
                                         </div>
-                                        <br>
-                                        <div class="sizes">
-
-                                        <select class="form-control">
-                                            <option value="jne">JNE</option>
-                                            <option value="tiki">TIKI</option>
-                                            <option value="kantorpos">Kantor POS</option>
-                                        </select>
-
-                                        </div>
-                                        <br>
+                                        <br><br>
+                                        
                                         <p class="text-center">
-                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                        @if(Auth::user())
+                                            <a href="{{ url('cart/'.$products->id) }}" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
                                             </button>
+                                        @else
+                                        <small>Login dahulu untuk melakukan transaksi</small>
                                         </p>
-
+                                        @endif
                                     </form>
                                 </div>
 
