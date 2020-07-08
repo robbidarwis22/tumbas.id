@@ -27,6 +27,7 @@ Route::post('/cart','CartController@index');
 Route::get('keranjang','CartController@keranjang');
 Route::post('cart/update','CartController@update');
 Route::get('cart/delete/{rowId}','CartController@delete');
+Route::get('cart/formulir','CartController@formulir');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');

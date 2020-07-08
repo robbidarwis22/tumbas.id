@@ -39,4 +39,9 @@ class CartController extends Controller
         $category = $this->category;
         return redirect('keranjang');
     }
+
+    public function formulir(){
+        $category = $this->category;
+        return view('homepage.formulir',compact('category'));
+    }
 }

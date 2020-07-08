@@ -87,8 +87,8 @@
                                         <a href="shop-category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
                                     </div>
                                     <div class="pull-right">
-                                        <button type="submit" class="btn btn-template-main">Proceed to checkout <i class="fa fa-chevron-right"></i>
-                                        </button>
+                                        <a href="{{ url('cart/formulir') }}" class="btn btn-template-main">Proceed to checkout <i class="fa fa-chevron-right"></i>
+                                        </a>
                                     </div>
                                 </div>
 
