@@ -32,7 +32,7 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="product">
                             <div class="image">
-                                <a href="shop-detail.html">
+                                <a href="{{ url('product/detail/'.$product->slug) }}">
                                     <img src="{{ url($product->photo) }}" alt="" class="img-responsive image1">
                                 </a>
                             </div>
@@ -40,10 +40,7 @@
                             <div class="text">
                                 <h3><a href="shop-detail.html">{{ $product->name }}</a></h3>
                                 <p class="price">Rp. {{ number_format($product->price) }}</p>
-                                <p class="buttons">
-                                    <a href="shop-detail.html" class="btn btn-default">View detail</a>
-                                    <a href="shop-basket.html" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                </p>
+                                
                             </div>
                             <!-- /.text -->
                         </div>
