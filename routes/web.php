@@ -23,7 +23,10 @@ Route::post('auth/register','AuthController@store')->name('home.register');
 Route::get('verifikasi/register/{token}','AuthController@verif');
 Route::post('auth/login','AuthController@login');
 //cart
-Route::get('/cart/{id}','CartController@index');
+Route::post('/cart','CartController@index');
+Route::get('keranjang','CartController@keranjang');
+Route::post('cart/update','CartController@update');
+Route::get('cart/delete/{rowId}','CartController@delete');
 
 Auth::routes();
 Route::get('/home','HomeController@index')->name('home');

@@ -46,26 +46,28 @@
                             <div class="col-sm-6">
                                 <div class="box">
 
-                                    <form>
+                                    <form action="{{ url('cart') }}" method="POST">
+                                    {{ @csrf_field() }}
                                         
                                         <p class="price">Rp. {{ number_format($products->price) }}</p>
                                         <br>
                                         <div class="sizes">
 
-                                            <select class="form-control">
+                                            <select class="form-control" name="qty">
                                             <?php
                                             for($i=1; $i <= $products->stock; $i++){
-                                                echo '<option value="small">'.$i.'</option>';
+                                                echo '<option value="'.$i.'">'.$i.'</option>';
                                             }
                                             ?>
                                             </select>
                                             <br>
                                         </div>
+                                        <input type="hidden" name="id" value="<?php echo $products->id;?>">
                                         <br><br>
                                         
                                         <p class="text-center">
                                         @if(Auth::user())
-                                            <a href="{{ url('cart/'.$products->id) }}" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
                                             <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
                                             </button>
                                         @else
