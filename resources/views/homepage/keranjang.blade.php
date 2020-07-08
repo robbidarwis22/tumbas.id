@@ -38,8 +38,6 @@
 
                         <div class="box">
 
-                        <form action="{{ url('cart/update') }}" method="POST">
-                        {{ @csrf_field() }}
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
@@ -53,12 +51,14 @@
                                         <tbody>
                                         
                                         <?php foreach(Cart::content() as $row) :?>
+                                            <form action="{{ url('cart/update') }}" method="POST">
+                                            {{ @csrf_field() }}
                                             <tr>
                                                 <td><a href="#"><?php echo $row->name; ?></a>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" name="rowId" value="{{ $row->rowId }}">
-                                                    <input type="number" value="<?php echo $row->qty; ?>" class="form-control" name="qty">
+                                                    <input type="number" value="<?php echo $row->qty; ?>" name="qty">
                                                 </td>
                                                 <td><?php echo $row->price; ?></td>
                                                 <td><?php echo $row->total; ?></td>
@@ -67,8 +67,9 @@
                                                 <a href="{{ url('cart/delete/'.$row->rowId) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
                                                 </td>
                                             </tr>
-                                            <?php endforeach;?>
+                                            
                                             </form>
+                                            <?php endforeach;?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
